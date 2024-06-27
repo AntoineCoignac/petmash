@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.get("/", verifyToken, imageController.getRandomImages);
 router.get("/leaderboard", verifyToken, imageController.getLeaderboard);
-router.post("/vote", verifyToken, imageController.vote);
+router.put("/vote", verifyToken, imageController.vote);
+router.post("/new", imageController.newImage);
 
 module.exports = router;
