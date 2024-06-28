@@ -21,7 +21,10 @@ export default {
         };
     },
     mounted() {
-        fetch('http://localhost:8080/api/images/leaderboard')
+        fetch('http://localhost:8080/api/images/leaderboard', {
+      method: 'GET',
+      credentials: 'include' // Assurez-vous d'inclure les credentials si nécessaire
+    })
             .then(response => response.json())
             .then(data => {
                 this.items = data;

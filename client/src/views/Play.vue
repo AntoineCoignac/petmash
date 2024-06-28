@@ -35,7 +35,9 @@ const checkLoggedIn = async () => {
 onMounted(() => {
     checkLoggedIn();
 
-    axios.get('http://localhost:8080/api/images/')
+    axios.get('http://localhost:8080/api/images/', {
+      withCredentials: true
+    })
         .then(response => {
             images.value = response.data;
             console.log(images.value);
@@ -55,7 +57,9 @@ const vote = (clickedImageId) => {
         axios.post('http://localhost:8080/api/images/vote', {
             for: clickedImageId,
             against: otherImage._id,
-        })
+        }, {
+      withCredentials: true
+    })
             .then(response => {
                 console.log(response.data)
                 result.value = response.data;
