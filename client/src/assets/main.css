@@ -1,35 +1,200 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  font-weight: normal;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+:root{
+    --grey: #9F9F9F;
+    --light: #f5f5f5;
+    --black-hover: #1f1f1f;
+    --light-hover: #f1f1f1;
+    --white-hover: #fafafa;
+    --blue: #3B72FF;
+    --red: #ff3b3b;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+a{
+    text-decoration: none;
+    color: black
 }
 
-@media (min-width: 1024px) {
-  body {
+.container{
+    width: 946px;
+    max-width: 90%;
+    margin: 0 auto;
+
+    &.sm{
+        width: 720px;
+    }
+}
+
+.p-ctn{
+    padding: 60px 0;
+}
+
+h1, .title, h1 *, .title *{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.grey{
+    color: var(--grey);
+}
+
+.btn{
+    padding: 14px 20px;
     display: flex;
-    place-items: center;
-  }
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    width: fit-content;
+    border: 0;
+    cursor: pointer;
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+    transition: ease 0.2s;
+
+    &.full{
+        width: 100%;
+    }
+
+    &.primary{
+        background: black;
+        color: white;
+
+        *{
+            color: white;
+        }
+
+        &:hover{
+            background: var(--black-hover);
+        }
+    }
+
+    &.secondary{
+        background: var(--light);
+        color: black;
+
+        *{
+            color: black;
+        }
+
+        &:hover{
+            background: var(--light-hover);
+        }
+    }
+
+    &.tertiary{
+        background: transparent;
+        color: black;
+
+        *{
+            color: black;
+        }
+
+        &:hover{
+            background: var(--white-hover);
+        }
+    }
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+
+    &.positive{
+        color: var(--blue);
+    }
+
+    &.negative{
+        color: var(--red);
+    }
+
+    &.neutral{
+        color: var(--grey);
+    }
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+    padding: 20px 0;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: white;
+
+    nav{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+.text-center{
+    text-align: center;
+    width: 100%;
+}
+
+.center{
+    margin: 0 auto;
+}
+
+.form{
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--light-hover);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: fit-content;
+}
+
+.no-border{
+    border: none;
+}
+
+.fields-2{
+    display: flex;
+    gap: 30px;
+    width: 100%;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+label{
+    font-weight: 600;
+}
+
+input{
+    border: 1px solid var(--light-hover);
+    border-radius: 4px;
+    padding: 14px 20px;
+    width: 100%;
+}
+
+.error{
+    color: var(--red);
+}
+
+.success{
+    color: var(--blue);
 }
