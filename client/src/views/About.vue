@@ -2,16 +2,14 @@
 import { onMounted } from 'vue';
 import maplibregl from 'maplibre-gl';
 
-// Importer le style de base de MapLibre
 import 'maplibre-gl/dist/maplibre-gl.css';
 
 onMounted(() => {
-  // Initialiser la carte lorsque le composant est monté
   const map = new maplibregl.Map({
-    container: 'map', // ID de l'élément dans lequel la carte sera rendue
-    style: 'https://api.maptiler.com/maps/streets/style.json?key=NazFHMGxkCo7F6o0D50x', // URL du style de la carte
-    center: [-83.23, 42.318], // Position centrale de la carte [longitude, latitude]
-    zoom: 15 // Niveau de zoom initial
+    container: 'map',
+    style: 'https://api.maptiler.com/maps/streets/style.json?key=NazFHMGxkCo7F6o0D50x', 
+    center: [-83.23, 42.318], 
+    zoom: 15
   });
 });
 </script>
