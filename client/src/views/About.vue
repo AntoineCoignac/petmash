@@ -21,7 +21,7 @@ onMounted(() => {
         <h1>We are on <span class="bold">fire 🔥</span></h1>
         <p>Welcome to Who's Hotter?, the wackiest and funniest site at the University of Michigan-Dearborn! 🌟
             <br><br>
-            Created on June 27, 2024, by Antoine and a bunch of merry pranksters, our site answers a burning question
+            Created on June 27, 2024, by a bunch of merry pranksters, our site answers a burning question
             that no one dared to ask: who is hotter between two images? Yes, this includes both humans and our animal
             friends! 🐱🐶
         </p>
@@ -31,7 +31,7 @@ onMounted(() => {
             <br><br>
             So, ready to join the hottest game of the year? Click, vote, and have a blast! 🔥
         </p>
-        <div id="map" class="map"></div> <!-- Ajout de l'élément de la carte -->
+        <div id="map" class="map"></div>
     </div>
 </template>
 
