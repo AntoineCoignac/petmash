@@ -44,8 +44,8 @@ const getRank = async (imageId) => {
 
 const vote = async (req, res, next) => {
     try {
-        const imageFor = await Image.findById(req.params.for);
-        const imageAgainst = await Image.findById(req.params.against);
+        const imageFor = await Image.findById(req.body.for);
+        const imageAgainst = await Image.findById(req.body.against);
 
         if (!imageFor || !imageAgainst) {
             return next(createError(404, 'One or both images not found'));
@@ -75,9 +75,9 @@ const vote = async (req, res, next) => {
 
         res.status(200).json({
             forId: imageFor._id,
-            forDiff: imageForNewRank - imageForRank,
+            forDiff: imageForRank - imageForNewRank,
             againstId: imageAgainst._id,
-            againstDiff: imageAgainstNewRank - imageAgainstRank
+            againstDiff: imageAgainstRank - imageAgainstNewRank
         });
     } catch (err) {
         next(err);
