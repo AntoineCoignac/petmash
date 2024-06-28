@@ -24,7 +24,7 @@ const firstName = localStorage.getItem('firstName');
 <template>
   <div id="app">
     <header class="container">
-      <router-link to="/">
+      <router-link to="/" class="logo">
 
         <svg width="155" height="25" viewBox="0 0 155 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -42,7 +42,7 @@ const firstName = localStorage.getItem('firstName');
       </nav>
       
       <nav v-if="userId">
-        <router-link to="/leaderboard" class="btn tertiary">
+        <router-link to="/leaderboard" class="btn tertiary" id="lb-btn">
           <FireIcon class="icon" />
           <span>View leaderboard</span>
         </router-link>
@@ -61,5 +61,17 @@ const firstName = localStorage.getItem('firstName');
 </template>
 
 <style scoped>
-/* Ajoutez vos styles CSS ici si nécessaire */
+.logo{
+  @media screen and (max-width: 968px) {
+       svg{
+        display: none;
+       } 
+
+       &::after{
+        content: "P.";
+        font-size: 24px;
+        font-weight: 700;
+       }
+  }
+}
 </style>

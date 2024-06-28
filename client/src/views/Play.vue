@@ -153,7 +153,13 @@ const reloadPage = () => {
     align-items: center;
     gap: 30px;
     max-width: 80%;
+    width: 100%;
     margin: 0 auto;
+
+    @media screen and (max-width: 968px) {
+        max-width: 100%;
+        gap: 15px;
+    }
 }
 
 .item {
@@ -193,6 +199,7 @@ const reloadPage = () => {
 
 img {
     width: 100%;
+    min-width: 100%;
     aspect-ratio: 1/1;
     border-radius: 4px;
     object-fit: cover;

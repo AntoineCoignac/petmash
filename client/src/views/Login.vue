@@ -25,6 +25,7 @@ const successRegister = ref(null);
 async function login() {
   if (!loginForm.value.username || !loginForm.value.password) {
     errorLogin.value = "Something is missing.";
+    successRegister.value = null;
   } else {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/login', {
@@ -42,9 +43,11 @@ async function login() {
       } else {
         console.error('Login failed: Invalid credentials');
         errorLogin.value = "Login failed: Invalid credentials";
+        successRegister.value = null;
       }
     } catch (error) {
       console.error('Error during login:', error);
+      successRegister.value = null;
       errorLogin.value = error.response?.data || error.message;
     }
   }
@@ -54,6 +57,7 @@ async function login() {
 async function register() {
   if (!registerForm.value.username || !registerForm.value.firstName || !registerForm.value.lastName || !registerForm.value.password) {
     errorRegister.value = "Something is missing";
+    successRegister.value = null;
   } else {
     try {
       const response = await axios.post('http://localhost:8080/api/auth/register', {
@@ -66,16 +70,19 @@ async function register() {
       if (response.data === 'User has been created.') {
         console.log('Register successful:', response.data);
         successRegister.value = "Register successful.";
+        errorRegister.value = null;
         localStorage.setItem('username', registerForm.value.username);
         localStorage.setItem('firstName', registerForm.value.firstName);
         localStorage.setItem('lastName', registerForm.value.lastName);
       } else {
         console.error('Register failed:', response.data);
         errorRegister.value = "Register failed.";
+        successRegister.value = null;
       }
     } catch (error) {
       console.error('Error during register:', error);
       errorRegister.value = error.response?.data?.error || error.message;
+      successRegister.value = null;
     }
   }
 }
@@ -138,5 +145,10 @@ async function register() {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+
+  @media screen and (max-width: 968px) {
+       display: flex;
+       flex-direction: column;
+  }
 }
 </style>
